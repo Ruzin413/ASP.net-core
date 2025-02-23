@@ -12,17 +12,23 @@ namespace mystore.Controllers
         {
             _logger = logger;
         }
-
+        [Route("/")]
+        [Route("[H]/[action]")]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Route("[h]/[Privacy1]")]
         public IActionResult Privacy()
         {
             return View();
         }
-
+        [Route("Detail/{id}")]
+        public int Detail(int id)
+        {
+            return id;
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

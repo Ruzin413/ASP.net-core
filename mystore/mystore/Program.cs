@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Builder;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,11 +19,19 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
-
+//app.Use(async (context1, next) =>
+//{
+//    await context1.Response.WriteAsync("hello this is from content1");
+//    await next(context1);
+//});
+//app.Use(async (context1, next) =>
+//{
+//    await context1.Response.WriteAsync("hello this is from content2");
+//    await next(context1);
+//});
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Privacy}/{id?}");
 
 app.Run();

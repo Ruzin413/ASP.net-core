@@ -12,14 +12,14 @@ namespace mystore.Controllers
         {
             _logger = logger;
         }
-        [Route("/")]
-        [Route("[H]/[action]")]
+        //[Route("/")]
+        //[Route("[H]/[action]")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [Route("[h]/[Privacy1]")]
+        //[Route("[h]/[Privacy1]")]
         public IActionResult Privacy()
         {
             return View();

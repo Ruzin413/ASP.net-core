@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "privacy";
+}
+@* @foreach(var item in (ViewBag.data1 as List<object> ?? new List<object>())){
+    <h1>@item</h1>
+    } *@
+@foreach (var item in ViewBag.data12)
+{
+    <h1>@item</h1>
+}
+<h1>@ViewBag.data1</h1>
+
+@* <h1>@ViewData["data1"]</h1>
+<h1>@ViewData["data2"]</h1>
+@foreach (var item in (ViewData["data3"] as List<object> ?? new List<object>()))
+{
+    <h1>@item</h1>
+}
+ *@

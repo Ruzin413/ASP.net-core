@@ -32,6 +32,6 @@ app.UseAuthorization();
 //});
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Privacy}/{id?}");
+    pattern: "{controller=Mypage}/{action=home}/{id?}");
 
 app.Run();

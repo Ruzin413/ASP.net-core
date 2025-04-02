@@ -1,15 +1,48 @@
-﻿@page
-@model mystore.Views.Mypage.homeModel
+﻿@model IEnumerable<mystore.Models.Student>
 @{
+    // var students =  ViewData["mystudents"] as List<Student> ?? new List<Student>();
+    // var students = ViewData["mystudents"] as List<Student> ?? new List<Student>();
+    // var stdrepo = ViewBag.data as List<Student> ?? new List<Student>();
 }
 <div class="text-center">
     <h1 class="display-4">From home page</h1>
     <h1>
         Now the time is
-        @for (int i = 0; i <= 10; i++)
-        {
-            <h1>@i</h1>
-        }
-        @DateTime.Now
+        @* @for (int i = 0; i <= 10; i++) *@
+        @* { *@
+        @*     <h1>@i</h1> *@
+        @* } *@
+        @* @DateTime.Now *@
     </h1>
-</div>
+    @* @foreach(var item in students){ *@
+    @*     <h1>@item.rollno</h1> *@
+    @* } *@
+    @* @foreach(var item in stdrepo){ *@
+    @*     <h1>@item.rollno</h1> *@
+    @*     <h1>@item.Name</h1> *@
+    @* } *@
+    <div class="space-y-6">
+        @foreach (var item in Model)
+        {
+            <div class="bg-white border border-gray-200 rounded-lg shadow-md p-6">
+                <h1 class="text-2xl font-semibold text-gray-800">@item.rollno</h1>
+                <h1 class="text-xl text-gray-700">@item.Name</h1>
+            </div>
+        }
+
+        <div class="space-y-4 mt-6">
+            <div>
+                @Html.ActionLink("Index page in home", "Detail", "Home", new { id = 1 })
+            </div>
+            <div>
+                <a asp-controller="Home" asp-action="Privacy" asp-route-id="@ViewData["num"]" class="text-blue-500 hover:underline">Privacy</a>
+            </div>
+            <div>
+                <a asp-controller="Mypage" asp-action="Form" class="bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600">Go to form</a>
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <img src="~/images/1.jpg" asp-append-version="true" height="200" width="150" alt="image" class="rounded-lg shadow-md" />
+        </div>
+    </div>

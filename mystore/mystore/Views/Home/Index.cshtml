@@ -1,8 +1,36 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<mystore.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<p>
+    <a asp-action="Create" class="bg-blue-500 text-white px-4 py-2 rounded-md">Create New</a>
+</p>
+@{
+    if (TempData["Sucess"] != null)
+    {
+    <div class="alert alert-primary" role="alert">
+        Data deleated
+    </div>
+    }
+}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    @foreach (var item in Model)
+    {
+        <div class="bg-white border border-gray-200 rounded-lg shadow-md p-4">
+            <h2 class="text-xl font-semibold text-gray-800">@item.FormName</h2>
+            <p class="text-gray-600">Email: @item.Email</p>
+            <p class="text-gray-600">Age: @item.FormAge</p>
+            <p class="text-gray-600">Gender: @item.Gender</p>
+            <p class="text-gray-600">Married: @item.Married</p>
+            <p class="text-gray-600">Notes: @item.FormTextArea</p>
+            <div class="mt-4 flex space-x-2">
+                <a asp-action="Edit" asp-route-id="@item.ID" class="bg-yellow-500 text-white px-4 py-2 rounded-md">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.ID" class="bg-blue-500 text-white px-4 py-2 rounded-md">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.ID" class="bg-red-500 text-white px-4 py-2 rounded-md">Delete</a>
+            </div>
+        </div>
+    }
 </div>
+
